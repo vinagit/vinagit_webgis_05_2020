@@ -1,0 +1,93 @@
+/* Selector chia ra làm 3 loại */
+/* - Dựa vào id
+- Dựa vào class
+- Dựa vào cấp của các thẻ tag trong html */
+
+/* Viet CSS dựa vào ID  (#) */
+#IDbody{}
+#menu{}
+/* phân cấp các thẻ tag */
+body a{}
+#IDbody a li{}
+
+/* Viet CSS dựa vào class  (.) */
+.classbody{
+    /* color picker */
+    /* Màu nền */
+    background-color: #cdcdcd;
+    /* Lấy hình ảnh làm background */
+    /* background-image: url('./img/h1.jpg'); */
+    /* background-size:20%; */
+    background-repeat:no-repeat;
+}
+
+.menu{
+    /* Chiều rộng */
+    width: 100%;
+    /* Chiều dài */
+    height: 10%;
+    
+}
+.text{
+    /* Màu chữ */
+    color: red;
+    /* Độ dày của chữ: (normal, bold, 100) */ 
+    font-weight: 500;
+    /* Kích thước của chữ */
+    font-size: 15px;
+    /* font chữ */
+    font-family: Arial, Helvetica, sans-serif;
+}
+.classbody{
+    text-decoration: none;
+}
+.btn{
+    width: 120px;
+    height: 43px;
+    /* border:solid 2px red;  */
+    /* https://www.w3schools.com/css/css_border.asp */
+    /* border-style: inset;
+    border-width: 5px;
+    border-color: red; */
+
+    /* border-left: solid;
+    border-right:solid;
+    border-bottom: solid;
+    border-top:solid; */
+
+    border:none;
+    background-color: white;
+    font-weight: 600;
+    color: #666564;
+    /* Bo tròn góc */
+    border-radius: 5px;
+}
+.btn:hover{
+    background-color: violet;
+    color: #fff;
+    cursor: pointer;
+}
+.table{
+    border-style: solid;
+    border-width: 1px;
+    border-color:#cdcdcd;
+
+    float: right;
+}
+tr{
+    height: 35px;
+    border-bottom:solid 1px #cdcdcd;
+}
+td{
+    border:solid 1px #cdcdcd; 
+    width: 150px;
+    text-align: center;
+}
+.header{
+    background-color:#666564;
+}
+.header td{
+    color: #fff;
+    font-weight: bold;
+}
+/* padding, margin */
