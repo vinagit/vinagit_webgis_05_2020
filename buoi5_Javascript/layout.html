@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Layout</title>
+        <link rel="stylesheet" href="stylelayout.css" />
+        <!-- gọi thư viện của bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery-3.5.1.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript">
+            var ten='Nguyen Thi B';
+            var tuoi=24;
+            var footer_txt=ten+' © WEBGIS - 2020';
+
+            /* console.log('Tên: '+ten);
+            console.log('Tuổi: '+tuoi);
+            console.log(footer_txt); */
+
+            //document.write(ten);
+
+            /*
+            alert(ten);
+            console.log(ten);
+            */
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="nav">
+                <a href="index.html" class="active"><span>Trang chủ</span> </a>  
+                <a href="about.html"><span>Giới thiệu</span></a> 
+                <a href="https://www.google.com/" target="_blank"> <span>Google</span> </a> 
+
+                <div class="dropdown custom-dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Users
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Login</a>
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mid">
+                <div class="left">
+                    <div class="search">
+                        <input class="input-search" type="number" placeholder="Số tờ..." name="txt_soto" id="txt_soto" value="123">
+                        <input class="input-search" type="number" placeholder="Số thửa..." name="txt_sothua" id="txt_sothua">
+                       <!--  <input class="input-search"  type="button" value="Tìm kiếm"> -->
+                       <!-- sử dụng bootstrap -->
+                        <button class="btn btn-outline-primary" onclick="tinh_tong()">Tìm kiếm</button>
+                    </div>
+                    <div class="result">
+                        
+                    </div>
+                </div>
+                <div class="right">
+                    <!-- <div class="row full-height">
+                        <div class="col-6">6</div>
+                        <div class="col-6">6</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="footer">
+                <span>
+                    <script>
+                        document.write(footer_txt);
+                    </script>
+                </span>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            
+            
+            function tinh_tong(){
+                var txt_soto=document.getElementById('txt_soto').value;
+                console.log(txt_soto);
+                var txt_sothua=document.getElementById('txt_sothua').value;
+                console.log(txt_sothua);
+            }
+
+            /* var numa=4;
+            var numb=5; */
+
+            /* console.log(numa+numb);
+            console.log(numa-numb);
+            console.log(numa*numb);
+            console.log(numa/numb); */
+
+            /* var ten='Nguyen Van A';
+            var tuoi=24;
+            var footer_txt=ten+' © WEBGIS - 2020';
+
+            console.log('Tên: '+ten);
+            console.log('Tuổi: '+tuoi);
+            console.log(footer_txt); */
+
+            //document.write(ten);
+
+            /*
+            alert(ten);
+            console.log(ten);
+            */
+        </script>
+    </body>
+</html>
