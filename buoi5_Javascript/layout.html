@@ -46,13 +46,19 @@
             <div class="mid">
                 <div class="left">
                     <div class="search">
-                        <input class="input-search" type="number" placeholder="Số tờ..." name="txt_soto" id="txt_soto" value="123">
+                        <input class="input-search" type="number" placeholder="Số tờ..." name="txt_soto" id="txt_soto">
                         <input class="input-search" type="number" placeholder="Số thửa..." name="txt_sothua" id="txt_sothua">
                        <!--  <input class="input-search"  type="button" value="Tìm kiếm"> -->
                        <!-- sử dụng bootstrap -->
-                        <button class="btn btn-outline-primary" onclick="tinh_tong()">Tìm kiếm</button>
+                        <button class="btn btn-outline-primary" onclick="tinh_tong()">Tính tổng</button>
+                        <button class="btn btn-outline-primary" onclick="chuvi()">Chu vi</button>
                     </div>
                     <div class="result">
+                        <!-- <input type="text" id="kq" name="kq" class="input-search" disabled> -->
+                        <div id="kq" name="kq">Ket qua o day.</div>
+
+                        <div id="select_traicay"></div>
+                        <div id="select_tinhthanh"></div>
                         
                     </div>
                 </div>
@@ -80,7 +86,73 @@
                 console.log(txt_soto);
                 var txt_sothua=document.getElementById('txt_sothua').value;
                 console.log(txt_sothua);
+
+                var tong=eval(txt_soto)+eval(txt_sothua);
+                console.log(tong);
+
+                //document.getElementById('kq').value=tong;
+                document.getElementById('kq').innerHTML=tong;
             }
+
+            function tinh_tong_v2(){
+                var txt_soto=document.getElementById('txt_soto').value;
+                var txt_sothua=document.getElementById('txt_sothua').value;
+                var tong=eval(txt_soto)+eval(txt_sothua);
+
+                return tong;
+            }
+
+            function chuvi(){
+                var tong=tinh_tong_v2();
+                var chuvi=tong*2;
+                document.getElementById('kq').innerHTML=chuvi;
+            }
+
+            function check_tuoi(){
+                var tuoi=document.getElementById('txt_soto').value;
+                if(tuoi<=18){
+                    alert('Vi thanh nien');
+                }else if(tuoi<=30){
+                    alert('Truong thanh');
+                }else{
+                    alert('Gia roi');
+                }
+            }
+
+            //var traicay=['Chuối','Cam','Mít','Xoài',123,['a','b','c']];
+            //traicay[5][1] ~ b
+            //traicay[1] ~ Cam
+
+            var traicay=['Chuối','Cam','Mít','Xoài','Ổi'];
+
+            var i=0;
+            for(i;i<traicay.length;i++){
+                console.log(i);
+                console.log(traicay[i]);
+            }
+
+            function gen_select(arr,divid){
+                console.log(arr);
+
+                var select='<select>';
+                    //select=select+'<option>Trai Xoai</option>';
+                    //select+='<option>Trai Xoai</option>';
+                    for(i=0;i<arr.length;i++){
+                        select+='<option value="'+arr[i]+'">'+arr[i]+'</option>';
+                    }
+                select=select+'</select>';
+                document.getElementById(divid).innerHTML=select;
+            }
+
+            gen_select(traicay,'select_traicay');
+
+            var arr_tinhtahnh=['Hà Nội','Hưng Yên','Bắc Cạn','Cao Bằng','Vinh','Huế','Quảng Nam','Quãng Ngãi'];
+            gen_select(arr_tinhtahnh,'select_tinhthanh');
+
+
+
+            
+            
 
             /* var numa=4;
             var numb=5; */
