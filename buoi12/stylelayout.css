@@ -1,0 +1,154 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.container-fluid{
+    height: 100%;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+   /*  background-color: rgb(139, 137, 137); */
+}
+.nav{
+    width: 100%;
+    height: 7%;
+    background-color: rgb(17, 119, 253);
+    
+}
+.mid{
+    width: 100%;
+    height: 86%;
+    background-color: cornsilk;
+}
+label div span{
+    color: rgb(17, 119, 253);;
+}
+.nav a{
+    float: left;
+    width: 100px;
+    display:flex !important;
+    align-items: center !important;
+    justify-content: center;
+    /* căn giữa mọi đối tượng theo chiều ngang */
+    text-align: center;
+
+    text-decoration: none;
+}
+.nav a:hover{
+    background-color: rgb(3, 56, 134);
+    
+}
+span{
+    color: #fff;
+}
+.nav a:hover span{
+    color: #fff;
+}
+.active{
+    background-color: rgb(3, 56, 134);
+}
+.left{
+    width: calc(35% - 1px);
+    height: 100%;
+    float: left;
+    background-color: #fff;
+    border-right:solid 1px #cdcdcd;
+}
+.right{
+    width: 65%;
+    float: right;
+    height: 100%;
+    background-color:#fff;
+}
+.footer{
+    height: 7%;
+    width: 100%;
+    background-color: rgb(17, 119, 253);
+    /* text-align: center; */
+    display: flex;
+}
+.footer span{
+    margin: auto;
+    
+}
+.search{
+    width: 100%;
+    height: 10%;
+    border-bottom:solid rgb(161, 160, 160) 1px;
+}
+.search .btn{
+    margin-bottom: 6px !important;
+}
+.result{
+    width: 100%;
+    height:calc(90% - 1px);
+}
+.input-search{
+    height: 35px;
+    width: 140px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-color: rgb(53, 169, 247);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+}
+.input-search:focus{
+    border-color: rgb(38, 149, 223);
+    border-width: 2px;
+    border-style: solid;
+}
+.custom-dropdown{
+    float:right;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.full-height{
+    height: 100%;
+}
+#map{
+    height: 100%;
+    width: 100%;
+}
+.leaflet-control-layers-selector{
+    float: left;
+    margin-right: 15px;
+}
+.leaflet-control-layers-expanded{
+    width: 150px;
+}
+.header-fixed {
+    width: 100% 
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+    display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.header-fixed > tbody {
+    overflow-y: auto;
+    height: 400px;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+    width: 20%;
+    float: left;
+}

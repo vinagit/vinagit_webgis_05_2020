@@ -135,9 +135,9 @@ var geosjonPolygon = L.geoJSON(geojsonpolygon,
 
 
 
-var wmsLayer = L.tileLayer.betterWms('https://geo.dothanhlong.org/geoserver/thuadat/wms',
+var wmsLayer = L.tileLayer.betterWms('http://localhost:8080/geoserver/thuadatquangnam/wms',
     {
-        layers: 'thuadat:view_duynghia_4326',
+        layers: 'thuadatquangnam:duynghia_quangnam',
         format: 'image/png',
         transparent: true,
         tiled: true
@@ -159,13 +159,31 @@ function showinfo(data){
             color:'red'
         }
     }).addTo(map);
-    
+    //xoa du lieu trong bang neu co
+    var element = document.getElementById('result');
+    element.innerHTML ='';
+    //lay du lieu selected
+    var dataselected = feature[0].properties;
+    var table ='<table class="table table-hover header-fixed">';
+    table += '<thead>';
+    table += '<tr><th>Số tờ</th> <th>Số thửa</th> <th>Diện tích</th> <th>Tên chủ</th> <th>Mã SDĐ</th> </tr></thead>';
+    table += '<tbody>';
+    table += "<tr onclick = 'Panto("+dataselected.geom+")'>";
+    table += '<td>'+dataselected.shbando+'</td>';
+    table += '<td>'+dataselected.shthua+'</td>';
+    table += '<td>'+dataselected.dientich+'</td>';
+    table += '<td>'+dataselected.tenchusdd+'</td>';
+    table += '<td>'+dataselected.mdsd+'</td>';
+    table += '</tr>'
+    table += '</tbody></table>';
+    var resultdiv = $('#result');
+    resultdiv.append(table);
 }
 
 function Search(){
     var soto = document.getElementById('txtsoto').value;
     var sothua = document.getElementById('txtsothua').value;
-    var url = "https://api.dothanhlong.org/vinagit_demothuadat/?soto="+soto+"&sothua="+sothua;
+    var url = "xuly.php?soto="+soto+"&sothua="+sothua;
 /*     console.log(url); */
     $.ajax({
         url :url, 
@@ -191,12 +209,16 @@ function Search(){
 }
 
 function Showtable(data){
+    //xoa du lieu trong bang neu co
+    var element = document.getElementById('result');
+    element.innerHTML ='';
+    
     var table ='<table class="table table-hover header-fixed">';
     table += '<thead>';
     table += '<tr><th>Số tờ</th> <th>Số thửa</th> <th>Diện tích</th> <th>Tên chủ</th> <th>Mã SDĐ</th> </tr></thead>';
     table += '<tbody>';
     for(var i = 0; i < data.length ; i++){
-        table += '<tr>';
+        table += "<tr onclick = 'Panto("+data[i].geom+")'>";
         table += '<td>'+data[i].shbando+'</td>';
         table += '<td>'+data[i].shthua+'</td>';
         table += '<td>'+data[i].dientich+'</td>';
@@ -209,5 +231,24 @@ function Showtable(data){
 
     var resultdiv = $('#result');
     resultdiv.append(table);
+    
+}
+function Panto(data){
+    if(FeatureSelected !==undefined){
+        map.removeLayer(FeatureSelected);
+    }
+    
+    FeatureSelected = L.geoJSON(data, {
+        style:{
+            color:'red'
+        }
+    }).addTo(map);
+    //GET bound of geojson layer
+    var BoundLayer = FeatureSelected.getBounds();
+    //zoom to layer
+    /* map.fitBounds(BoundLayer); */
+    var center = BoundLayer.getCenter();
+    map.flyTo([center.lat,center.lng], 19);
+    
     
 }
